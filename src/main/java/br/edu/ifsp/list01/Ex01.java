@@ -1,5 +1,7 @@
 package br.edu.ifsp.list01;
 
+import java.util.Scanner;
+
 /*
     Uma livraria está fazendo uma promoção para pagamento a vista. O comprador pode escolher entre dois planos de pagamento:
 
@@ -16,21 +18,22 @@ package br.edu.ifsp.list01;
 class Ex01 {
 
     public static void main(String[] args) {
-//        final Scanner scanner = new Scanner(System.in);
-//        final int input = scanner.nextInt();
-//        final Ex01 ex01 = new Ex01();
-//        System.out.println(ex01.compute(input));
+        final Scanner scanner = new Scanner(System.in);
+        final int input = scanner.nextInt();
+        final Ex01 ex01 = new Ex01();
+        System.out.println(ex01.compute(input));
     }
 
     String compute(int qtdLivros) {
         if (qtdLivros <= 0) return "Erro";
 
-        final double precoA = 0.25 * qtdLivros + 7.5;
-        final double precoB = 0.5 * qtdLivros + 2.5;
+        double criterionA = 0.25 * qtdLivros + 7.5;
+        double criterionB = 0.5 * qtdLivros + 2.5;
 
-        if (precoA == precoB) return "Indiferente";
-        if (precoA < precoB) return "Criterio A";
+        if (criterionA < criterionB) return "Criterio A";
 
-        return  "Criterio B";
+        if (criterionA > criterionB) return "Criterio B";
+
+        return "Indiferente";
     }
 }
